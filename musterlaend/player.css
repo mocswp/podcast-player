@@ -3201,6 +3201,9 @@ body {
         --o-card  → Hintergrund je Podcast (podcast.json: playerColor)
         --o-ctrl  → Bedienflächen je Podcast (podcast.json: popupColor)
         --o-scrim → Hintergrundfarbe mit 90 % Deckkraft
+      Akzentfarbe (Abspielen-Button, Fortschritt, Hervorhebungen) fest
+      Schwarz statt der Farbe aus den Podigee-Einstellungen (ohne Angabe
+      dort wäre sie Podigee-Orange).
       Die Variablen --npg-card, --npg-ctrl und --npg-scrim setzt der Build.
       Der Selektor ist bewusst spezifischer als Podigees Ton-Klassen
       (.podcast-player-orbit.orbit-tone-…), damit unser Ton auch dann gilt,
@@ -3229,16 +3232,20 @@ body {
   --o-pressed: rgba(36, 27, 31, 0.12);
   --o-track: rgba(36, 27, 31, 0.18);
   --o-loaded: rgba(36, 27, 31, 0.32);
-  --o-fill: var(--main-player-cream-card-fill, var(--o-main));
-  --o-on-fill: var(--main-player-cream-card-on-fill, var(--o-contrast));
-  --o-fill-hover: var(--main-player-cream-card-fill-hover, var(--o-main-hover));
-  --o-fill-active: var(--main-player-cream-card-fill-active, var(--o-main-active));
-  --o-hover-text: var(--main-player-cream-card-text, var(--o-text));
+  --o-main: #000000;
+  --o-main-hover: #333333;
+  --o-main-active: #000000;
+  --o-contrast: #ffffff;
+  --o-fill: #000000;
+  --o-on-fill: #ffffff;
+  --o-fill-hover: #333333;
+  --o-fill-active: #000000;
+  --o-hover-text: var(--o-text);
   --o-scrim: var(--npg-scrim, rgba(241, 236, 230, 0.9));
   --o-tint: rgba(219, 70, 21, 0.18);
   --o-warn-bg: #f8ebcc;
   --o-warn-text: #6b4500;
-  --o-bar: var(--main-player-bar-cream, var(--main-player-color-hover, #db4615));
+  --o-bar: #000000;
   --o-ring: none;
 }
 @supports (color: color-mix(in srgb, red, blue)) {
@@ -3248,16 +3255,6 @@ body {
     --o-tint: color-mix(in srgb, var(--o-main) 16%, var(--npg-card, #f1ece6));
   }
 }
-/* Steuerung: Füllfarben wie bei .orbit-tone-cream .main-player */
-.podcast-player.podcast-player-orbit.podcast-player-orbit[class] .main-player,
-.podcast-player.podcast-player-orbit.podcast-player-orbit[class].has-video .mode-toggle-info {
-  --o-fill: var(--main-player-cream-ctrl-fill, var(--o-main));
-  --o-on-fill: var(--main-player-cream-ctrl-on-fill, var(--o-contrast));
-  --o-fill-hover: var(--main-player-cream-ctrl-fill-hover, var(--o-main-hover));
-  --o-fill-active: var(--main-player-cream-ctrl-fill-active, var(--o-main-active));
-  --o-hover-text: var(--main-player-cream-ctrl-text, var(--o-text));
-}
-
 /* ---------- 2. Abo-Bereich ---------- */
 .podcast-player.podcast-player-orbit {
   --orbit-platform-links: 0;
