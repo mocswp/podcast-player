@@ -3365,5 +3365,5 @@ body {
   }
 }
 
-/* ===== Farben (podcast.json: playerColor, popupColor) ===== */
-.podcast-player.podcast-player-orbit { --npg-card: #fdf6e6; --npg-ctrl: #faeecc; --npg-scrim: rgba(253, 246, 230, 0.9); }
+/* ===== Farben (podcast.json: playerColor, popupColor; config.json: cardColor) ===== */
+.podcast-player.podcast-player-orbit { --npg-card: #e6e6e6; --npg-ctrl: #fdf6e6; --npg-scrim: rgba(230, 230, 230, 0.9); }
