@@ -3208,6 +3208,8 @@ body {
       Der Selektor ist bewusst spezifischer als Podigees Ton-Klassen
       (.podcast-player-orbit.orbit-tone-…), damit unser Ton auch dann gilt,
       wenn bei Podigee ein dunkler Ton gewählt ist.
+   Darkmode: Steht der Browser bzw. das System auf dunkel, wird der Player
+      schwarz mit weißer Schrift (eigener Block nach dem Farbblock).
    2. Abo-Bereich: Podigees eigenes Befüllen der Symbolleiste ist aus
       (--orbit-platform-links: 0); Symbole, Button „Abonnieren“ und die
       Abo-Ansicht setzt der Build aus unseren Daten ein.
@@ -3255,6 +3257,45 @@ body {
     --o-tint: color-mix(in srgb, var(--o-main) 16%, var(--npg-card, #f1ece6));
   }
 }
+/* Darkmode (Browser bzw. System auf dunkel): schwarzer Player, weiße Schrift,
+   Bedienleiste in einer dunklen Fassung der Podcast-Farbe (--npg-ctrl-dark, setzt
+   der Build; je Podcast überschreibbar mit barColorDark), Abspielen-Button und
+   Fortschritt weiß.
+   Werte nach orbits dunklem Ton „walnut“, Hintergründe neutral statt braun. */
+@media (prefers-color-scheme: dark) {
+  .podcast-player.podcast-player-orbit.podcast-player-orbit[class],
+  .podcast-player.podcast-player-orbit.podcast-player-orbit[class] .main-player,
+  .podcast-player.podcast-player-orbit.podcast-player-orbit[class].has-video .mode-toggle-info {
+    --o-card: #000000;
+    --o-field: transparent;
+    --o-ctrl-base: var(--npg-ctrl-dark, #262626);
+    --o-ctrl: var(--npg-ctrl-dark, #262626);
+    --o-lift: #333333;
+    --o-text: #ffffff;
+    --o-body: #c8c8c8;
+    --o-muted: #a6a6a6;
+    --o-border: rgba(255, 255, 255, 0.12);
+    --o-border-strong: rgba(255, 255, 255, 0.2);
+    --o-hover: rgba(255, 255, 255, 0.08);
+    --o-pressed: rgba(255, 255, 255, 0.14);
+    --o-track: rgba(255, 255, 255, 0.22);
+    --o-loaded: rgba(255, 255, 255, 0.36);
+    --o-main: #ffffff;
+    --o-main-hover: #d9d9d9;
+    --o-main-active: #ffffff;
+    --o-contrast: #000000;
+    --o-fill: #ffffff;
+    --o-on-fill: #000000;
+    --o-fill-hover: #d9d9d9;
+    --o-fill-active: #ffffff;
+    --o-scrim: rgba(0, 0, 0, 0.9);
+    --o-tint: rgba(255, 255, 255, 0.12);
+    --o-warn-bg: #3a2c1c;
+    --o-warn-text: #dca13a;
+    --o-bar: #ffffff;
+  }
+}
+
 /* ---------- 2. Abo-Bereich ---------- */
 .podcast-player.podcast-player-orbit {
   --orbit-platform-links: 0;
@@ -3300,7 +3341,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   border-radius: inherit;
-  background: var(--npg-ctrl, #eae3da);
+  background: var(--o-ctrl);
   color: var(--o-text);
   text-align: center;
 }
@@ -3366,4 +3407,4 @@ body {
 }
 
 /* ===== Farben (podcast.json: playerColor, popupColor; config.json: cardColor) ===== */
-.podcast-player.podcast-player-orbit { --npg-card: #e6e6e6; --npg-ctrl: #fdf6e6; --npg-scrim: rgba(230, 230, 230, 0.9); }
+.podcast-player.podcast-player-orbit { --npg-card: #ffffff; --npg-ctrl: #fdf6e6; --npg-scrim: rgba(255, 255, 255, 0.9); --npg-ctrl-dark: #4a3c1c; }
