@@ -3214,7 +3214,8 @@ body {
       (--orbit-platform-links: 0); Symbole, Button „Abonnieren“ und die
       Abo-Ansicht setzt der Build aus unseren Daten ein.
    3. Fortschrittsbalken ohne Kapitel: Podigee zeichnet bei Folgen mit
-      Kapitelmarken Trennstriche in den Balken; die sind ausgeblendet.
+      Kapitelmarken Trennstriche in den Balken und zeigt beim Überfahren
+      den Kapitelnamen neben der Zeit; beides ist ausgeblendet.
    ============================================================ */
 
 /* ---------- 1. Farbe ---------- */
@@ -3413,6 +3414,23 @@ body {
    „…“-Menü bleibt, wie Podigee sie liefert. */
 .podcast-player-orbit .progress-bar-chapter-gap {
   display: none !important;
+}
+/* Beim Überfahren des Balkens nur die Zeit, wie bei Folgen ohne Kapitel */
+.podcast-player-orbit .scrub-indicator-chapter {
+  display: none !important;
+}
+/* Bei Folgen mit Kapiteln schreibt Podigee „22:49 · Kapitel 6“ in das
+   Zeitfeld selbst (ohne Script nicht änderbar). Riesiger Wortabstand setzt
+   jedes Wort in eine eigene Zeile, sichtbar bleibt nur die erste: die Zeit.
+   Folgen ohne Kapitel sind davon nicht betroffen. */
+.podcast-player-orbit .scrub-indicator-chapter:not(:empty) + .scrub-indicator-time {
+  padding-left: 8px;
+  white-space: normal;
+  word-spacing: 100vw;
+  width: min-content;
+  height: 26px;
+  line-height: 26px;
+  overflow: hidden;
 }
 
 /* ===== Farben (podcast.json: playerColor, popupColor; config.json: cardColor) ===== */
