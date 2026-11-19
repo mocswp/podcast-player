@@ -1,4 +1,4 @@
-<div class="podcast-player podcast-player-orbit" pp-class-has-video="hasVideoEpisode">
+<div class="podcast-player podcast-player-orbit" pp-class-has-video="hasVideoAvailable">
   <div class="podcast-player-inside"><!-- npg:start -->
     <input type="checkbox" class="npg-sub-toggle" id="npg-sub-toggle" aria-label="Abonnieren"><!-- npg:end -->
     <audio aria-hidden="true"></audio>
@@ -11,7 +11,6 @@
 
     <div class="cover-image-player-wrap" tabindex="0" role="group" pp-aria-label="title">
       <div class="cover-image-wrap">
-        <video class="video-element" aria-hidden="true"></video>
         <img class="cover-backdrop" pp-src="coverUrl" alt="">
         <img class="cover-image" pp-src="coverUrl" alt="">
 
@@ -90,7 +89,7 @@
             <div class="quality-menu" role="menu" pp-aria-label="translations.settings"></div>
           </div>
 
-          <div class="mode-toggle mode-toggle-controls" role="group" pp-aria-label="translations.playbackMode" pp-if="hasVideoEpisode">
+          <div class="mode-toggle mode-toggle-controls" role="group" pp-aria-label="translations.playbackMode" pp-if="hasVideoAvailable">
             <button type="button" class="mode-watch" pp-on-click="switchToVideo" aria-pressed="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M2 6h14v12H2z"/><path d="m16 10 6-3v10l-6-3"/></svg><span pp-html="translations.watch"></span>
             </button>
@@ -104,7 +103,7 @@
             <svg class="fullscreen-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true" focusable="false"><path d="M8 3v5H3M21 8h-5V3M16 21v-5h5M3 16h5v5"/></svg>
           </button>
 
-          <button type="button" class="compact-watch-button icon-button" pp-if="hasVideoEpisode" pp-on-click="watchFullscreen" pp-aria-label="translations.watchVideo">
+          <button type="button" class="compact-watch-button icon-button" pp-if="hasVideoAvailable" pp-on-click="watchFullscreen" pp-aria-label="translations.watchVideo">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true" focusable="false"><path d="M2 6h14v12H2z"/><path d="m16 10 6-3v10l-6-3"/></svg>
           </button>
 
@@ -128,7 +127,7 @@
           <p class="episode-context"><span pp-html="podcastTitle"></span> · <span pp-html="title"></span></p>
         </div>
 
-        <div class="mode-toggle mode-toggle-info" role="group" pp-aria-label="translations.playbackMode" pp-if="hasVideoEpisode">
+        <div class="mode-toggle mode-toggle-info" role="group" pp-aria-label="translations.playbackMode" pp-if="hasVideoAvailable">
           <button type="button" class="mode-watch" pp-on-click="switchToVideo" aria-pressed="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M2 6h14v12H2z"/><path d="m16 10 6-3v10l-6-3"/></svg><span pp-html="translations.watch"></span>
           </button>
