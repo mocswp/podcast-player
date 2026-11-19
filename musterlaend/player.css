@@ -3213,6 +3213,8 @@ body {
    2. Abo-Bereich: Podigees eigenes Befüllen der Symbolleiste ist aus
       (--orbit-platform-links: 0); Symbole, Button „Abonnieren“ und die
       Abo-Ansicht setzt der Build aus unseren Daten ein.
+   3. Fortschrittsbalken ohne Kapitel: Podigee zeichnet bei Folgen mit
+      Kapitelmarken Trennstriche in den Balken; die sind ausgeblendet.
    ============================================================ */
 
 /* ---------- 1. Farbe ---------- */
@@ -3404,6 +3406,13 @@ body {
   .podcast-player-orbit .npg-sub-view .subscribe-items-list a {
     height: 36px;
   }
+}
+
+/* ---------- 3. Fortschrittsbalken ohne Kapitel ---------- */
+/* Balken immer „clean“, egal ob die Folge Kapitel hat. Die Kapitelliste im
+   „…“-Menü bleibt, wie Podigee sie liefert. */
+.podcast-player-orbit .progress-bar-chapter-gap {
+  display: none !important;
 }
 
 /* ===== Farben (podcast.json: playerColor, popupColor; config.json: cardColor) ===== */
